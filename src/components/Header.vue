@@ -1,5 +1,5 @@
 <template>
-    <div id="nav">
+  <div id="nav">
     <div class="logo" >
       <router-link to="/">MyContacts</router-link>
     </div>
