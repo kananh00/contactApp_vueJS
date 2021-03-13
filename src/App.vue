@@ -18,7 +18,7 @@ export default {
 <style>
 #app {
   margin: 0;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
