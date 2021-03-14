@@ -1,6 +1,6 @@
 <template>
   <div class="add">
-    <div class="createWindow">
+    <div class="form">
         <h1>Add new contact</h1>
         <p>Name</p>
         <input placeholder="Name" class="input" type="text" v-model="contact.name"/>
@@ -14,16 +14,20 @@
         <input placeholder="Adress" class="input" type="text" v-model="contact.adress"/>
         <p>Birthday</p>
         <input placeholder="Birthday" class="input" type="text" v-model="contact.birthday"/>
-        <button class="addBtn" @click="addContact">Add Contact</button>
+        <button class="btn" @click="addContact">Add Contact</button>
     </div>
   </div>
 </template>
 
 <script>
+import {createID} from '../utils/createID'
 export default {
   data() {
     return {
-      contact: {}
+      contact: {
+        id: createID(),
+        date: Date.now()
+      }
     }
   },
   methods: {
@@ -37,7 +41,7 @@ export default {
 
 <style>
 
-  .createWindow {
+  .form {
     background-color: rgb(255,215,0);
     width: 500px;
     border-radius: 10px;
@@ -56,8 +60,7 @@ export default {
     border-radius: 5px;
     outline: none;
   }
-
-  .addBtn {
+  .btn {
     width: 100%;
     display: block;
     border: 2px solid transparent;
