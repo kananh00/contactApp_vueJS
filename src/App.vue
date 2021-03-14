@@ -18,7 +18,9 @@ export default {
 <style>
 #app {
   margin: 0;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+  font-family: 'Josefin Sans', cursive;
+  box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;

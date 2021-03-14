@@ -56,8 +56,15 @@ export default createStore({
   },
  
   mutations: {
+    ADD_CONTACT(state, contact) {
+      let contacts = state.contacts.concat(contact);
+      state.contacts = contacts;
+    }
   },
   actions: {
+    async addContact({commit}, contact) {
+      commit('ADD_CONTACT', contact);
+    }
   },
   modules: {
   }
