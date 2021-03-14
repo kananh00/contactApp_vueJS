@@ -63,6 +63,13 @@ export default createStore({
     DELETE_CONTACT(state, contactId) {
       let contacts = state.contacts.filter(contact => contact.id != contactId)
       state.contacts = contacts;
+    },
+    EDIT_CONTACT(state, contact){
+      state.contacts.forEach(c => {
+        if(c.id == contact.id) {
+          c = contact;
+        }
+      })
     }
   },
   actions: {
@@ -72,6 +79,11 @@ export default createStore({
 
     async deleteContact({commit}, contact) {
       commit('DELETE_CONTACT', contact.id)
+    },
+
+    async editContact({commit}, contact) {
+      commit('EDIT_CONTACT', contact.id);
+      return contact;
     }
   },
   modules: {
