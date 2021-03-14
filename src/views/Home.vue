@@ -6,6 +6,7 @@
            <h3 class = "avatar">{{contact.name.charAt(0)}}{{contact.surname.charAt(0)}}</h3>
            <span class="info">{{contact.name}} {{contact.surname}}</span>
         </router-link>
+        <button class="deleteBtn" @click="deleteContact(contact)">X</button>
       </li>
     </ul>
   </div>
@@ -20,6 +21,11 @@ export default {
   computed: {
     contacts(){
       return this.$store.state.contacts;
+    }
+  },
+  methods: {
+    deleteContact(contact) {
+      this.$store.dispatch('deleteContact', contact);
     }
   }
 }
@@ -36,7 +42,11 @@ export default {
   .home ul {
     list-style-type: none;
   }
-
+  .home li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .contact a{
     text-decoration: none;
     display: flex;
@@ -71,5 +81,17 @@ export default {
     background-color: #228B22;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-left: 20px;
+  }
+
+  .deleteBtn {
+    border: 1px solid transparent;
+    background-color: #b22222;
+    border-radius: 100%;
+    cursor: pointer;
+    outline: none;
+    height: 40px;
+    margin-left: -30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
   }
 </style>
