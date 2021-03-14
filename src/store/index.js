@@ -59,11 +59,19 @@ export default createStore({
     ADD_CONTACT(state, contact) {
       let contacts = state.contacts.concat(contact);
       state.contacts = contacts;
+    },
+    DELETE_CONTACT(state, contactId) {
+      let contacts = state.contacts.filter(contact => contact.id != contactId)
+      state.contacts = contacts;
     }
   },
   actions: {
     async addContact({commit}, contact) {
       commit('ADD_CONTACT', contact);
+    },
+
+    async deleteContact({commit}, contact) {
+      commit('DELETE_CONTACT', contact.id)
     }
   },
   modules: {
