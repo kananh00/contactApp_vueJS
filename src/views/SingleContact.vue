@@ -4,10 +4,10 @@
             
             <h1 class="avatarIMG">{{contact.name.charAt(0)}}{{contact.surname.charAt(0)}}</h1>
             <h3 class="contact_fullName">{{contact.name}} {{contact.surname}}</h3>
-            <p class="contact_phone">{{contact.phone}}</p>
-            <p class="contact_email">{{contact.email}}</p>
-            <p class="contact_adress">{{contact.adress}}</p>
-            <p class="contact_birthday">{{contact.birthday}}</p>
+            <p class="contact_phone">Phone number: {{contact.phone}}</p>
+            <p v-if="contact.email" class="contact_email">Email: {{contact.email}}</p>
+            <p v-if="contact.adress" class="contact_adress">Adress: {{contact.adress}}</p>
+            <p v-if="contact.birthday" class="contact_birthday">Birthday: {{contact.birthday}}</p>
             <button class="contactBtn" @click="deleteContact(contact)"><img class="contactIcon" alt="trash-bin" src="../assets/delete.png"/></button>
             <button class="contactBtn"><router-link :to="{ name: 'EditContact', params: {id: contact.id}}"><img class="contactIcon" alt="edit" src="../assets/edit.png"/></router-link></button>
             <p v-if="contact.date">Created: {{new Date(contact.date).getDate()}}/{{new Date(contact.date).getMonth()}}/{{new Date(contact.date).getFullYear()}}</p>
@@ -18,7 +18,7 @@
 <script>
 import {mapState} from 'vuex';
 export default {
-     computed: {
+    computed: {
         ...mapState(['contacts']),
         contact(){
             return this.contacts.find(c => c.id == this.$route.params.id);
